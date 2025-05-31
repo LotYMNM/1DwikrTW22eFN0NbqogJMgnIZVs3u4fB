@@ -64,6 +64,28 @@ table {
     flex-grow: 1;
 }
 </style>
+function syncTableHeight() {
+    const timeTableRows = document.querySelectorAll('.time-table tr');
+    const shiftedTableRows = document.querySelectorAll('.shifted-table tr');
+    
+    let maxRows = Math.max(timeTableRows.length, shiftedTableRows.length);
+    
+    while (timeTableRows.length < maxRows) {
+        let newRow = document.createElement('tr');
+        newRow.innerHTML = '<td></td>';
+        document.querySelector('.time-table').appendChild(newRow);
+    }
+
+    while (shiftedTableRows.length < maxRows) {
+        let newRow = document.createElement('tr');
+        newRow.innerHTML = '<td></td><td></td>';
+        document.querySelector('.shifted-table').appendChild(newRow);
+    }
+}
+
+window.onload = syncTableHeight;
+window.addEventListener('resize', syncTableHeight);<script>
+</script>
 </head>
 <body>
     <div>
