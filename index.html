@@ -52,38 +52,11 @@ table {
     width: 100%; 
     text-align: left;
 }
-.schedule-table {
-    display: flex;
-    gap: 0px;
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    align-items: stretch;
-}
-.time-table, .shifted-table {
-    flex-grow: 1;
+body {
+    min-width: 1200px; /* スマホでも横長レイアウトを維持 */
+    overflow-x: auto;  /* 画面が収まらない場合は横スクロール */
 }
 </style>
-<script>
-function syncRowHeights() {
-    const timeTableRows = document.querySelectorAll('.time-table tr');
-    const shiftedTableRows = document.querySelectorAll('.shifted-table tr');
-
-    for (let i = 0; i < Math.min(timeTableRows.length, shiftedTableRows.length); i++) {
-        let timeCell = timeTableRows[i].querySelector('td');
-        let shiftedCell = shiftedTableRows[i].querySelector('td');
-
-        if (timeCell && shiftedCell) {
-            let maxHeight = Math.max(timeCell.clientHeight, shiftedCell.clientHeight);
-            timeCell.style.height = maxHeight + "px";
-            shiftedCell.style.height = maxHeight + "px";
-        }
-    }
-}
-
-window.onload = syncRowHeights;
-window.addEventListener('resize', syncRowHeights);
-</script>
 </head>
 <body>
     <div>
