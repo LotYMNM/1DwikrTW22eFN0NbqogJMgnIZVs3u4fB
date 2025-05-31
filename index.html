@@ -13,9 +13,9 @@ body {
     justify-content: center; 
     align-items: center; 
     min-height: 100vh; 
-    margin: 0;
+    margin: 5px; /* 完全にゼロではなく、少し余裕を持たせる */
     padding: 0;
-    overflow-x: hidden; /* 横スクロールを防止 */
+    overflow-x: auto; /* はみ出た部分をスクロール可能にする */
 }
 
 th { 
@@ -33,7 +33,8 @@ th, td {
 
 table {
     border-collapse: collapse;
-    width: auto; /* 各表のサイズを内容に応じて変更 */
+    width: 100%;
+    max-width: 100vw; /* 画面幅に収める */
     table-layout: auto; /* 自動調整 */
 }
 
