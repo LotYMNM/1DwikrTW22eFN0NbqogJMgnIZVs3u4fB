@@ -15,27 +15,18 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    overflow-x: auto; /* **画面全体のスクロールを許可** */
-    overflow-y: scroll;
-}
-
-/* **見出し（DAY1など） → クリックできないようにする** */
-h2 {
-    padding: 10px;
-    background-color: #ddd;
-    border-radius: 5px;
-    cursor: default; /* **クリック不可に変更** */
+    padding: 0;
+    overflow-x: hidden; /* **横スクロールを防止** */
 }
 
 /* **表全体のレイアウト** */
 .schedule-table {
     display: flex;
-    flex-wrap: nowrap; /* **折り返しを防ぐ** */
+    gap: 0px;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto; /* **中央配置を維持** */
-    align-items: flex-start; /* **縦幅を統一しない** */
-    overflow-x: auto; /* **横スクロールを許可** */
+    align-items: stretch;
 }
 
 /* **個別のテーブル設定** */
@@ -54,10 +45,17 @@ th, td {
     overflow: hidden;
 }
 
+/* **表のヘッダの色を統一** */
+th { 
+    background-color: #4CAF50; /* **緑色のヘッダに戻す** */
+    color: white;
+    text-align: center;
+}
+
 /* **左側の時間テーブル** */
 .time-table { 
-    min-width: 80px; /* **左側の表が切れないようにする** */
-    text-align: right;
+    width: 80px; 
+    text-align: right; 
     transform: translateY(26px);
 }
 
@@ -65,15 +63,6 @@ th, td {
 .shifted-table { 
     width: 100%;
     text-align: left;
-}
-
-/* **スマホ対応（横並びを維持）** */
-@media screen and (max-width: 768px) {
-    .schedule-table {
-        display: flex; /* **ブロック表示を防ぐ** */
-        flex-wrap: nowrap; /* **横並びを維持** */
-        overflow-x: auto;
-    }
 }
 </style>
 <script>
