@@ -61,26 +61,27 @@ table {
 <script>
 function syncTableWidths() {
     const tables = document.querySelectorAll('.shifted-table');
-    let maxWidths = new Array(10).fill(0); // 最大列数を仮定（調整可）
+    let maxWidths = [];
 
-    // 各列の最大幅を取得（最初の1回だけ）
+    // 各列の最大幅を取得（確定したレンダリング幅を基準にする）
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            maxWidths[index] = Math.max(maxWidths[index], col.scrollWidth);
+            maxWidths[index] = Math.max(maxWidths[index] || 0, col.offsetWidth);
         });
     });
 
-    // 一度確定した幅を適用（スクロール時の再計算を防ぐ）
+    // 一度確定した幅を適用（再計算を防ぐ）
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            col.style.width = maxWidths[index] + "px";
+            col.style.minWidth = maxWidths[index] + "px"; // **minWidthで確定する**
         });
     });
 }
 
 window.onload = syncTableWidths;
+window.addEventListener('resize', syncTableWidths);
 </script>
 </head>
 <body>
