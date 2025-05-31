@@ -34,6 +34,7 @@ html, body {
     flex-direction: row;
     overflow: visible; /* スクロールバーなし */
     margin-bottom: 40px;
+    align-items: flex-start; /* 上揃え */
 }
 
 /* テーブル設定 */
@@ -63,7 +64,7 @@ th {
 .time-table {
     width: 80px;
     text-align: right;
-    transform: translateY(26px); /* ヘッダー高さ分ずらす */
+    margin-top: 26px; /* transformの代わりにマージンでずらす */
 }
 
 /* 右側のコンテンツテーブル */
