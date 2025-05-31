@@ -5,43 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
 <style>
-<style>
-/* **全体の設定** */
-body { 
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+/* リセットと基本レイアウト */
+html, body {
     margin: 0;
     padding: 0;
+    overflow-x: auto; /* 横スクロールを許可 */
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
 }
 
-/* **スケジュール全体のラッパー（スクロール制御）** */
+/* スケジュール全体のラッパー */
 .schedule-wrapper {
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    overflow-x: auto; /* 横スクロール許可 */
-    overflow-y: auto; /* 縦スクロール許可 */
+    box-sizing: border-box;
 }
 
-/* **表全体のレイアウト** */
+/* 表全体のラッパー */
 .schedule-table {
     display: flex;
-    gap: 0px;
-    min-width: 600px; /* 最低限の幅を確保 */
-    width: fit-content;
-    align-items: flex-start;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: max-content; /* 中身に合わせて横幅を取る */
+    max-width: 100%;
 }
 
-/* **個別のテーブル設定** */
+/* テーブル設定 */
 table {
     border-collapse: collapse;
-    width: auto;
     table-layout: fixed;
 }
 
-/* **セルのデザイン → 改行を防ぐ** */
+/* セルのスタイル */
 th, td {
     border: 1px solid #ddd;
     padding: 10px;
@@ -50,27 +52,26 @@ th, td {
     overflow: hidden;
 }
 
-/* **表のヘッダの色を統一** */
-th { 
+/* ヘッダスタイル */
+th {
     background-color: #4CAF50;
     color: white;
     text-align: center;
 }
 
-/* **左側の時間テーブル** */
-.time-table { 
-    width: 80px; 
-    text-align: right; 
-    transform: translateY(26px);
+/* 時間テーブル（左列） */
+.time-table {
+    width: 80px;
+    text-align: right;
+    transform: translateY(26px); /* ヘッダ分ずらす */
 }
 
-/* **右側のテーブル（滞在地・備考）** */
-.shifted-table { 
-    width: 100%;
+/* 滞在地＋備考の右テーブル */
+.shifted-table {
     text-align: left;
 }
 
-/* **スマホ対応（必要に応じてレイアウト調整）** */
+/* スマホ対応（テーブルが折り返さないように） */
 @media screen and (max-width: 768px) {
     .schedule-table {
         flex-wrap: nowrap;
@@ -83,6 +84,13 @@ function syncColumnWidths() {
     const tables = document.querySelectorAll('.shifted-table');
     let maxWidths = [];
 
+    // 一旦widthリセット（ここが重要！）
+    tables.forEach(table => {
+        const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
+        cols.forEach(col => col.style.width = '');
+    });
+
+    // 最大幅を取得
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
@@ -90,10 +98,11 @@ function syncColumnWidths() {
         });
     });
 
+    // 最大幅を適用
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            col.style.width = maxWidths[index] + "px"; /* **統一した幅を適用** */
+            col.style.width = maxWidths[index] + "px";
         });
     });
 }
