@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="viewport" content="width=1200, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
 <style>
 body { 
@@ -13,8 +13,10 @@ body {
     justify-content: center; 
     align-items: center; 
     min-height: 100vh; 
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* 横スクロールを防止 */
 }
-
 
 th { 
     background-color: #4CAF50; 
@@ -26,6 +28,7 @@ th, td {
     padding: 10px;
     height: 30px;
     white-space: nowrap; /* 改行を防ぐ */
+    overflow: hidden;
 }
 
 table {
@@ -39,7 +42,7 @@ table {
     gap: 0px;
     width: 100%;
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto; /* 中央配置は維持しつつ、余白をなくす */
     align-items: stretch;
 }
 
@@ -58,27 +61,26 @@ table {
 <script>
 function syncTableWidths() {
     const tables = document.querySelectorAll('.shifted-table');
-    let maxWidths = [];
+    let maxWidths = new Array(10).fill(0); // 最大列数を仮定（調整可）
 
-    // 各列の最大幅を取得（確定したレンダリング幅を基準にする）
+    // 各列の最大幅を取得（最初の1回だけ）
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            maxWidths[index] = Math.max(maxWidths[index] || 0, col.offsetWidth);
+            maxWidths[index] = Math.max(maxWidths[index], col.scrollWidth);
         });
     });
 
-    // 一度確定した幅を適用（再計算を防ぐ）
+    // 一度確定した幅を適用（スクロール時の再計算を防ぐ）
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            col.style.minWidth = maxWidths[index] + "px"; // **minWidthで確定する**
+            col.style.width = maxWidths[index] + "px";
         });
     });
 }
 
 window.onload = syncTableWidths;
-window.addEventListener('resize', syncTableWidths);
 </script>
 </head>
 <body>
