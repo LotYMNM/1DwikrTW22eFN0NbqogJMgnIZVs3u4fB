@@ -18,26 +18,26 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: auto; /* **画面全体の横スクロールを許可** */
-    overflow-y: scroll; /* **縦スクロールのみ許可（表の縦スクロールは禁止）** */
+    overflow-y: scroll; /* **画面の縦スクロールはOK** */
 }
 
 /* **表全体のレイアウト** */
 .schedule-table {
     display: flex;
     gap: 0px;
-    width: fit-content; /* **横スクロールを適正化** */
-    max-width: none; /* **横幅制限を解除** */
+    width: fit-content; /* **テーブルが適切なサイズに収まる** */
+    max-width: none; /* **横幅の制限を解除** */
     margin: 0 auto;
-    align-items: flex-start; /* **縦幅を揃えない** */
-    overflow-x: auto; /* **表の横スクロールを可能にする** */
-    overflow-y: hidden; /* **表の縦スクロールを無効化** */
+    align-items: flex-start; /* **縦の高さを統一しない** */
+    overflow-x: auto; /* **表の横スクロールを許可** */
+    overflow-y: hidden; /* **表自体の縦スクロールは禁止** */
 }
 
 /* **個別のテーブル設定** */
 table {
     border-collapse: collapse;
     width: 100%; /* **各表の幅を統一** */
-    table-layout: fixed; /* **セル幅を固定し、勝手に伸びないようにする** */
+    table-layout: fixed; /* **セルの幅を固定し、勝手に伸びないようにする** */
 }
 
 /* **セルのデザイン → 改行を防ぐ** */
@@ -51,7 +51,7 @@ th, td {
 
 /* **表のヘッダの色を統一** */
 th { 
-    background-color: #4CAF50; /* **緑色のヘッダに戻す** */
+    background-color: #4CAF50; /* **ヘッダの色を元に戻す** */
     color: white;
     text-align: center;
 }
@@ -69,7 +69,6 @@ th {
     text-align: left;
 }
 </style>
-    
 <script>
 function syncColumnWidths() {
     const tables = document.querySelectorAll('.shifted-table');
