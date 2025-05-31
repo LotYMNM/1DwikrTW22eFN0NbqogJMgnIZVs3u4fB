@@ -53,28 +53,22 @@ table {
     width: 100%; 
     text-align: left;
 }
-body {
-    min-width: 1200px; /* スマホでも横長レイアウトを維持 */
-    overflow-x: auto;  /* 画面が収まらない場合は横スクロール */
-}
-
 
 </style>
 <script>
 function syncTableWidths() {
     const tables = document.querySelectorAll('.shifted-table');
-    let maxWidths = [];
+    let maxWidths = new Array(10).fill(0); // 最大列数を仮定（調整可）
 
-    // 各列の最大幅を取得（改行なしで正しい幅を取得）
+    // 各列の最大幅を取得（最初の1回だけ）
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            const width = col.scrollWidth; // 本来の幅を取得
-            maxWidths[index] = Math.max(maxWidths[index] || 0, width);
+            maxWidths[index] = Math.max(maxWidths[index], col.scrollWidth);
         });
     });
 
-    // 各表の列幅を最大値で統一
+    // 一度確定した幅を適用（スクロール時の再計算を防ぐ）
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
@@ -84,7 +78,6 @@ function syncTableWidths() {
 }
 
 window.onload = syncTableWidths;
-window.addEventListener('resize', syncTableWidths);
 </script>
 </head>
 <body>
