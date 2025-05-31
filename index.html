@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
 <style>/* 全体の設定 */
+/* 全体の設定 */
 body { 
     font-family: Arial, sans-serif; /* フォント設定 */
     background-color: #f8f8f8; /* 背景色 */
@@ -38,8 +39,8 @@ h2 {
 /* 個別のテーブル設定 */
 table {
     border-collapse: collapse;
-    width: auto; /* 自動調整 */
-    table-layout: auto; /* セルのサイズを適切に調整 */
+    width: auto; /* **幅を自由に調整** */
+    table-layout: fixed; /* **セルのサイズを均等に確保** */
 }
 
 /* セルのデザイン */
@@ -47,7 +48,7 @@ th, td {
     border: 1px solid #ddd; /* 枠線 */
     padding: 10px;
     height: 30px;
-    white-space: nowrap; /* 改行を防ぐ */
+    white-space: nowrap; /* **改行を防ぐ** */
     overflow: hidden;
 }
 
