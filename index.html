@@ -33,8 +33,7 @@ th, td {
 
 table {
     border-collapse: collapse;
-    width: 100%;
-    max-width: 100vw; /* 画面幅に収める */
+    width: auto;
     table-layout: auto; /* 自動調整 */
 }
 
@@ -64,7 +63,7 @@ function syncTableWidths() {
     const tables = document.querySelectorAll('.shifted-table');
     let maxWidths = [];
 
-    // 各列の最大幅を取得（確定したレンダリング幅を基準にする）
+    // 各列の最大幅を取得
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
@@ -72,17 +71,16 @@ function syncTableWidths() {
         });
     });
 
-    // 一度確定した幅を適用（再計算を防ぐ）
+    // **固定幅を適用（伸び続けるのを防ぐ）**
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            col.style.minWidth = maxWidths[index] + "px"; // **minWidthで確定する**
+            col.style.width = maxWidths[index] + "px"; // **minWidthではなくwidthを適用**
         });
     });
 }
 
 window.onload = syncTableWidths;
-window.addEventListener('resize', syncTableWidths);
 </script>
 </head>
 <body>
