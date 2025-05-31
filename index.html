@@ -5,38 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
 <style>
+<style>
 /* **全体の設定** */
 body { 
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+/* **スケジュール全体のラッパー（スクロール制御）** */
+.schedule-wrapper {
     padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    overflow-x: auto; /* **画面全体の横スクロールを許可** */
-    overflow-y: scroll; /* **画面の縦スクロールはOK** */
+    overflow-x: auto; /* 横スクロール許可 */
+    overflow-y: auto; /* 縦スクロール許可 */
 }
 
 /* **表全体のレイアウト** */
 .schedule-table {
     display: flex;
     gap: 0px;
-    width: fit-content; /* **適切なサイズで収める** */
-    max-width: 100vw; /* **画面幅いっぱいにする** */
-    margin: 0 auto;
-    align-items: flex-start; /* **縦の高さを統一しない** */
-    overflow-x: auto; /* **表の横スクロールを可能に** */
-    overflow-y: hidden; /* **表の縦スクロールを無効化** */
+    min-width: 600px; /* 最低限の幅を確保 */
+    width: fit-content;
+    align-items: flex-start;
 }
 
 /* **個別のテーブル設定** */
 table {
     border-collapse: collapse;
-    width: auto; /* **各表の幅を適切に調整** */
-    table-layout: fixed; /* **セルの幅を固定し、勝手に伸びないようにする** */
+    width: auto;
+    table-layout: fixed;
 }
 
 /* **セルのデザイン → 改行を防ぐ** */
@@ -44,13 +46,13 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     height: 30px;
-    white-space: nowrap; /* **改行を防ぐ** */
+    white-space: nowrap;
     overflow: hidden;
 }
 
 /* **表のヘッダの色を統一** */
 th { 
-    background-color: #4CAF50; /* **ヘッダの色を元に戻す** */
+    background-color: #4CAF50;
     color: white;
     text-align: center;
 }
@@ -68,10 +70,10 @@ th {
     text-align: left;
 }
 
-/* **スマホでも横スクロール可能にする** */
+/* **スマホ対応（必要に応じてレイアウト調整）** */
 @media screen and (max-width: 768px) {
     .schedule-table {
-        overflow-x: auto; /* **横スクロールを許可** */
+        flex-wrap: nowrap;
     }
 }
 </style>
