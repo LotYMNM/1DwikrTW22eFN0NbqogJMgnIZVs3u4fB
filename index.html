@@ -9,7 +9,7 @@
 body { 
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
-    padding: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,18 +30,19 @@ h2 {
 /* **表全体のレイアウト** */
 .schedule-table {
     display: flex;
-    flex-wrap: nowrap;
-    width: auto;
-    max-width: none;
-    overflow-x: auto; /* **画面スクロールを許可** */
+    flex-wrap: nowrap; /* **折り返しを防ぐ** */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; /* **中央配置を維持** */
     align-items: flex-start; /* **縦幅を統一しない** */
+    overflow-x: auto; /* **横スクロールを許可** */
 }
 
 /* **個別のテーブル設定** */
 table {
     border-collapse: collapse;
-    width: auto;
-    table-layout: fixed; /* **セルサイズを均等化** */
+    width: auto; /* **各表のサイズを内容に応じて調整** */
+    table-layout: auto; /* **セルサイズを自動調整** */
 }
 
 /* **セルのデザイン → 改行を防ぐ** */
@@ -49,14 +50,15 @@ th, td {
     border: 1px solid #ddd;
     padding: 10px;
     height: 30px;
-    white-space: nowrap;
+    white-space: nowrap; /* **改行を防ぐ** */
     overflow: hidden;
 }
 
 /* **左側の時間テーブル** */
 .time-table { 
-    min-width: 100px; /* **左側の表が切れないようにする** */
+    min-width: 80px; /* **左側の表が切れないようにする** */
     text-align: right;
+    transform: translateY(26px);
 }
 
 /* **右側のテーブル（滞在地・備考）** */
@@ -69,7 +71,7 @@ th, td {
 @media screen and (max-width: 768px) {
     .schedule-table {
         display: flex; /* **ブロック表示を防ぐ** */
-        flex-direction: row; /* **横並びを維持** */
+        flex-wrap: nowrap; /* **横並びを維持** */
         overflow-x: auto;
     }
 }
