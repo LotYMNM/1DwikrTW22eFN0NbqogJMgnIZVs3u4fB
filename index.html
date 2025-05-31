@@ -65,27 +65,24 @@ table {
 }
 </style>
 <script>
-function syncTableHeight() {
+function syncRowHeights() {
     const timeTableRows = document.querySelectorAll('.time-table tr');
     const shiftedTableRows = document.querySelectorAll('.shifted-table tr');
-    
-    let maxRows = Math.max(timeTableRows.length, shiftedTableRows.length);
-    
-    while (timeTableRows.length < maxRows) {
-        let newRow = document.createElement('tr');
-        newRow.innerHTML = '<td></td>';
-        document.querySelector('.time-table').appendChild(newRow);
-    }
 
-    while (shiftedTableRows.length < maxRows) {
-        let newRow = document.createElement('tr');
-        newRow.innerHTML = '<td></td><td></td>';
-        document.querySelector('.shifted-table').appendChild(newRow);
+    for (let i = 0; i < Math.min(timeTableRows.length, shiftedTableRows.length); i++) {
+        let timeCell = timeTableRows[i].querySelector('td');
+        let shiftedCell = shiftedTableRows[i].querySelector('td');
+
+        if (timeCell && shiftedCell) {
+            let maxHeight = Math.max(timeCell.clientHeight, shiftedCell.clientHeight);
+            timeCell.style.height = maxHeight + "px";
+            shiftedCell.style.height = maxHeight + "px";
+        }
     }
 }
 
-window.onload = syncTableHeight;
-window.addEventListener('resize', syncTableHeight);
+window.onload = syncRowHeights;
+window.addEventListener('resize', syncRowHeights);
 </script>
 </head>
 <body>
