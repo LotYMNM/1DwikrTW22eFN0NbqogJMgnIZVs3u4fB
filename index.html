@@ -135,7 +135,71 @@ window.addEventListener('resize', () => {
         <div>
             <h1 style="text-align: center;">スケジュール</h1>
 
-            <!-- 1日目 -->
+            <!-- 名古屋 -->
+            <h2 onclick="toggleSchedule('day1', 'icon1')">
+                <span id="icon1" class="toggle-icon">▶</span> 6月03日(月)
+            </h2>
+            <div id="day1" class="schedule-container">
+                <div class="schedule-table">
+                    <table class="time-table">
+                        <tr><th>時刻</th></tr>
+                        <tr><td>11:05</td></tr>
+                        <tr><td>11:12</td></tr>
+                        <tr><td>11:14</td></tr>
+                        <tr><td>11:30</td></tr>
+                        <tr><td>11:35</td></tr>
+                        <tr><td>11:48</td></tr>
+                        <tr><td>12:07</td></tr>
+                        <tr><td>13:25</td></tr>
+                        <tr><td>13:32</td></tr>
+                        <tr><td>13:36</td></tr>
+                        <tr><td>13:42</td></tr>
+                        <tr><td>13:46</td></tr>
+                        <tr><td>17:00</td></tr>
+                        <tr><td>18:15</td></tr>
+                        <tr><td>18:25</td></tr>
+                        <tr><td>18:30</td></tr>
+                        <tr><td>19:06</td></tr>
+                        <tr><td>20:26</td></tr>
+                        <tr><td>20:32</td></tr>
+                        <tr><td>20:41</td></tr>
+                        <tr><td>20:54</td></tr>
+                        <tr><td>21:46</td></tr>
+                    </table>
+                    <table class="shifted-table">
+                        <tr><th>滞在地</th><th>備考</th></tr>
+                        <tr><td>京急田浦駅</td><td>番ホーム</td></tr>
+                        <tr><td>↓京急</td><td>行</td></tr>
+                        <tr><td>金沢八景駅</td><td>番ホーム</td></tr>
+                        <tr><td>↓京急</td><td>行</td></tr>
+                        <tr><td>横浜駅</td><td>番ホーム</td></tr>
+                        <tr><td>↓JR？線</td><td>行</td></tr>
+                        <tr><td>新横浜駅</td><td></td></tr>
+                        <tr><td>↓新幹線</td><td></td></tr>
+                        <tr><td>名古屋駅</td><td>1番ホーム</td></tr>
+                        <tr><td>↓東山線</td><td>各停　藤が丘行</td></tr>
+                        <tr><td>栄駅</td><td>3番ホーム</td></tr>
+                        <tr><td>↓名城線</td><td>各停　名古屋港行</td></tr>
+                        <tr><td>上前津駅</td><td></td></tr>
+                        <tr><td>↓徒歩</td><td></td></tr>
+                        <tr><td>SMILE BASE CAFE 名古屋栄店</td><td></td></tr>
+                        <tr><td>↓徒歩</td><td>名古屋まで徒歩43分</td></tr>
+                        <tr><td>栄駅</td><td>2番ホーム</td></tr>
+                        <tr><td>↓東山線</td><td>各停　高畑行</td></tr>
+                        <tr><td>名古屋駅</td><td></td></tr>
+                        <tr><td>↓新幹線</td><td></td></tr>
+                        <tr><td>新横浜駅</td><td></td></tr>
+                        <tr><td>↓JR横浜線</td><td>各停　東神奈川行</td></tr>
+                        <tr><td>東神奈川駅</td><td></td></tr>
+                        <tr><td>↓徒歩</td><td></td></tr>
+                        <tr><td>京急東神奈川駅</td><td>1番ホーム</td></tr>
+                        <tr><td>↓京急</td><td>普通　浦賀行</td></tr>
+                        <tr><td>京急田浦駅</td><td>番ホーム</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 白川郷1日目 -->
             <h2 onclick="toggleSchedule('day1', 'icon1')">
                 <span id="icon1" class="toggle-icon">▶</span> DAY1 6月21日(土)
             </h2>
@@ -177,7 +241,7 @@ window.addEventListener('resize', () => {
                 </div>
             </div>
 
-            <!-- 2日目 -->
+            <!-- 白川郷2日目 -->
             <h2 onclick="toggleSchedule('day2', 'icon2')">
                 <span id="icon2" class="toggle-icon">▶</span> DAY2 6月22日(日)
             </h2>
@@ -207,7 +271,7 @@ window.addEventListener('resize', () => {
                 </div>
             </div>
 
-            <!-- 3日目 -->
+            <!-- 白川郷3日目 -->
             <h2 onclick="toggleSchedule('day3', 'icon3')">
                 <span id="icon3" class="toggle-icon">▶</span> DAY3 6月23日(月)
             </h2>
