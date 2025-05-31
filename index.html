@@ -4,71 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
-<style>/* 全体の設定 */
-/* 全体の設定 */
+<style>
+/* **全体の設定** */
 body { 
-    font-family: Arial, sans-serif; /* フォント設定 */
-    background-color: #f8f8f8; /* 背景色 */
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0; /* 余白を完全に除去 */
+    margin: 0;
     overflow-x: auto; /* **画面全体のスクロールを許可** */
-    overflow-y: scroll; /* **縦スクロールも許可** */
+    overflow-y: scroll;
 }
 
-/* 見出し（DAY1など） */
+/* **見出し（DAY1など） → クリックできないようにする** */
 h2 {
-    cursor: pointer;
     padding: 10px;
     background-color: #ddd;
     border-radius: 5px;
+    cursor: default; /* **クリック不可に変更** */
 }
 
-/* 表の全体レイアウト */
+/* **表全体のレイアウト** */
 .schedule-table {
     display: flex;
-    flex-wrap: nowrap; /* 折り返しを防ぐ */
+    flex-wrap: nowrap;
     width: auto;
-    max-width: none; /* 制限を解除 */
-    overflow-x: auto; /* **スクロールを可能に** */
+    max-width: none;
+    overflow-x: auto; /* **画面スクロールを許可** */
+    align-items: flex-start; /* **縦幅を統一しない** */
 }
 
-/* 個別のテーブル設定 */
+/* **個別のテーブル設定** */
 table {
     border-collapse: collapse;
-    width: auto; /* **幅を自由に調整** */
-    table-layout: fixed; /* **セルのサイズを均等に確保** */
+    width: auto;
+    table-layout: fixed; /* **セルサイズを均等化** */
 }
 
-/* セルのデザイン */
+/* **セルのデザイン → 改行を防ぐ** */
 th, td {
-    border: 1px solid #ddd; /* 枠線 */
+    border: 1px solid #ddd;
     padding: 10px;
     height: 30px;
-    white-space: nowrap; /* **改行を防ぐ** */
+    white-space: nowrap;
     overflow: hidden;
 }
 
-/* 左側の時間テーブル */
+/* **左側の時間テーブル** */
 .time-table { 
-    min-width: 100px; /* 左側の表が切れないようにする */
+    min-width: 100px; /* **左側の表が切れないようにする** */
     text-align: right;
 }
 
-/* 右側のテーブル（滞在地・備考） */
+/* **右側のテーブル（滞在地・備考）** */
 .shifted-table { 
     width: 100%;
     text-align: left;
 }
 
-/* 3つの表の列幅を統一 */
+/* **スマホ対応（横並びを維持）** */
 @media screen and (max-width: 768px) {
     .schedule-table {
-        overflow-x: auto; /* スマホでもスクロール可能に */
-        display: block; /* モバイル時に1列で表示 */
+        display: flex; /* **ブロック表示を防ぐ** */
+        flex-direction: row; /* **横並びを維持** */
+        overflow-x: auto;
     }
 }
 </style>
