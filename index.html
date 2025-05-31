@@ -103,110 +103,112 @@ window.addEventListener('resize', syncColumnWidths);
 </script>
 </head>
 <body>
-    <div>
-        <h1 style="text-align: center;">スケジュール</h1>
+    <div class="schedule-wrapper">
+        <div>
+            <h1 style="text-align: center;">スケジュール</h1>
 
-        <!-- 1日目 -->
-        <h2 onclick="toggleSchedule('day1', 'icon1')">
-            <span id="icon1" class="toggle-icon">▶</span> DAY1 6月22日(日)
-        </h2>
-        <div id="day1" class="schedule-container">
-            <div class="schedule-table">
-                <table class="time-table">
-                    <tr><th>時刻</th></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>11:24</td></tr>
-                    <tr><td>14:03</td></tr>
-                    <tr><td>14:45</td></tr>
-                    <tr><td>16:25</td></tr>
-                </table>
-                <table class="shifted-table">
-                    <tr><th>滞在地</th><th>備考</th></tr>
-                    <tr><td>京急田浦駅</td><td>2番線</td></tr>
-                    <tr><td>↓京急</td><td></td></tr>
-                    <tr><td>金沢なんちゃら</td><td></td></tr>
-                    <tr><td>↓京急</td><td></td></tr>
-                    <tr><td>横浜？</td><td></td></tr>
-                    <tr><td>↓</td><td></td></tr>
-                    <tr><td>東京駅</td><td></td></tr>
-                    <tr><td>↓新幹線</td><td>はくたか５６１号　8号車　17番D席、E席</td></tr>
-                    <tr><td>新高岡駅</td><td>南口　4番のりば</td></tr>
-                    <tr><td>↓濃飛バス</td><td>0504便 01号車 [濃飛乗合自動車㈱ ] 6C、6D</td></tr>
-                    <tr><td>白川郷（荻町）</td><td></td></tr>
-                </table>
+            <!-- 1日目 -->
+            <h2 onclick="toggleSchedule('day1', 'icon1')">
+                <span id="icon1" class="toggle-icon">▶</span> DAY1 6月22日(日)
+            </h2>
+            <div id="day1" class="schedule-container">
+                <div class="schedule-table">
+                    <table class="time-table">
+                        <tr><th>時刻</th></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>11:24</td></tr>
+                        <tr><td>14:03</td></tr>
+                        <tr><td>14:45</td></tr>
+                        <tr><td>16:25</td></tr>
+                    </table>
+                    <table class="shifted-table">
+                        <tr><th>滞在地</th><th>備考</th></tr>
+                        <tr><td>京急田浦駅</td><td>2番線</td></tr>
+                        <tr><td>↓京急</td><td></td></tr>
+                        <tr><td>金沢なんちゃら</td><td></td></tr>
+                        <tr><td>↓京急</td><td></td></tr>
+                        <tr><td>横浜？</td><td></td></tr>
+                        <tr><td>↓</td><td></td></tr>
+                        <tr><td>東京駅</td><td></td></tr>
+                        <tr><td>↓新幹線</td><td>はくたか５６１号　8号車　17番D席、E席</td></tr>
+                        <tr><td>新高岡駅</td><td>南口　4番のりば</td></tr>
+                        <tr><td>↓濃飛バス</td><td>0504便 01号車 [濃飛乗合自動車㈱ ] 6C、6D</td></tr>
+                        <tr><td>白川郷（荻町）</td><td></td></tr>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <!-- 2日目 -->
-        <h2 onclick="toggleSchedule('day2', 'icon2')">
-            <span id="icon2" class="toggle-icon">▶</span> DAY2 6月22日(日)
-        </h2>
-        <div id="day2" class="schedule-container">
-            <div class="schedule-table">
-                <table class="time-table">
-                    <tr><th>時刻</th></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                </table>
-                <table class="shifted-table">
-                    <tr><th>滞在地</th><th>備考</th></tr>
-                    <tr><td>結の庄</td><td></td></tr>
-                    <tr><td></td><td></td></tr>
-                    <tr><td></td><td></td></tr>
-                </table>
+            <!-- 2日目 -->
+            <h2 onclick="toggleSchedule('day2', 'icon2')">
+                <span id="icon2" class="toggle-icon">▶</span> DAY2 6月22日(日)
+            </h2>
+            <div id="day2" class="schedule-container">
+                <div class="schedule-table">
+                    <table class="time-table">
+                        <tr><th>時刻</th></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                    </table>
+                    <table class="shifted-table">
+                        <tr><th>滞在地</th><th>備考</th></tr>
+                        <tr><td>結の庄</td><td></td></tr>
+                        <tr><td></td><td></td></tr>
+                        <tr><td></td><td></td></tr>
+                    </table>
+                </div>
             </div>
-        </div>
 
-        <!-- 3日目 -->
-        <h2 onclick="toggleSchedule('day3', 'icon3')">
-            <span id="icon3" class="toggle-icon">▶</span> DAY3 6月23日(月)
-        </h2>
-        <div id="day3" class="schedule-container">
-            <div class="schedule-table">
-                <table class="time-table">
-                    <tr><th>時刻</th></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>11:10</td></tr>
-                    <tr><td>12:00</td></tr>
-                    <tr><td>13:10</td></tr>
-                    <tr><td>14:50</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>00:00</td></tr>
-                    <tr><td>15:39</td></tr>
-                    <tr><td>16:52</td></tr>
-                    <tr><td>17:30</td></tr>
-                    <tr><td>20:05</td></tr>
-                    <tr><td>20:20</td></tr>
-                    <tr><td>21:38</td></tr>
-                </table>
-                <table class="shifted-table">
-                    <tr><th>滞在地</th><th>備考</th></tr>
-                    <tr><td>結の庄</td><td></td></tr>
-                    <tr><td>↓徒歩</td><td></td></tr>
-                    <tr><td>白川郷（荻町）</td><td></td></tr>
-                    <tr><td>↓濃飛バス</td><td>0502便 01号車 [加越能バス㈱ ] 6C、6D</td></tr>
-                    <tr><td>高山濃飛バスセンター</td><td></td></tr>
-                    <tr><td>↓濃飛バスK1 荘川線</td><td></td></tr>
-                    <tr><td>牧戸駅</td><td></td></tr>
-                    <tr><td>↓徒歩</td><td></td></tr>
-                    <tr><td>七間飛吊橋</td><td>沙都子橋</td></tr>
-                    <tr><td>↓徒歩</td><td></td></tr>
-                    <tr><td>牧戸駅</td><td></td></tr>
-                    <tr><td>↓濃飛バスK1 荘川線</td><td></td></tr>
-                    <tr><td>高山濃飛バスセンター</td><td></td></tr>
-                    <tr><td>↓ＪＲ東海バス</td><td>13217便【1号車】 06C , 06D</td></tr>
-                    <tr><td>名古屋駅</td><td></td></tr>
-                    <tr><td>↓新幹線</td><td>のぞみ５２号　4号車　13番D席、E席</td></tr>
-                    <tr><td>新横浜駅</td><td></td></tr>
-                </table>
+            <!-- 3日目 -->
+            <h2 onclick="toggleSchedule('day3', 'icon3')">
+                <span id="icon3" class="toggle-icon">▶</span> DAY3 6月23日(月)
+            </h2>
+            <div id="day3" class="schedule-container">
+                <div class="schedule-table">
+                    <table class="time-table">
+                        <tr><th>時刻</th></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>11:10</td></tr>
+                        <tr><td>12:00</td></tr>
+                        <tr><td>13:10</td></tr>
+                        <tr><td>14:50</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>00:00</td></tr>
+                        <tr><td>15:39</td></tr>
+                        <tr><td>16:52</td></tr>
+                        <tr><td>17:30</td></tr>
+                        <tr><td>20:05</td></tr>
+                        <tr><td>20:20</td></tr>
+                        <tr><td>21:38</td></tr>
+                    </table>
+                    <table class="shifted-table">
+                        <tr><th>滞在地</th><th>備考</th></tr>
+                        <tr><td>結の庄</td><td></td></tr>
+                        <tr><td>↓徒歩</td><td></td></tr>
+                        <tr><td>白川郷（荻町）</td><td></td></tr>
+                        <tr><td>↓濃飛バス</td><td>0502便 01号車 [加越能バス㈱ ] 6C、6D</td></tr>
+                        <tr><td>高山濃飛バスセンター</td><td></td></tr>
+                        <tr><td>↓濃飛バスK1 荘川線</td><td></td></tr>
+                        <tr><td>牧戸駅</td><td></td></tr>
+                        <tr><td>↓徒歩</td><td></td></tr>
+                        <tr><td>七間飛吊橋</td><td>沙都子橋</td></tr>
+                        <tr><td>↓徒歩</td><td></td></tr>
+                        <tr><td>牧戸駅</td><td></td></tr>
+                        <tr><td>↓濃飛バスK1 荘川線</td><td></td></tr>
+                        <tr><td>高山濃飛バスセンター</td><td></td></tr>
+                        <tr><td>↓ＪＲ東海バス</td><td>13217便【1号車】 06C , 06D</td></tr>
+                        <tr><td>名古屋駅</td><td></td></tr>
+                        <tr><td>↓新幹線</td><td>のぞみ５２号　4号車　13番D席、E席</td></tr>
+                        <tr><td>新横浜駅</td><td></td></tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
