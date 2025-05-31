@@ -4,54 +4,71 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
-<style>
+<style>/* 全体の設定 */
 body { 
-    font-family: Arial, sans-serif; 
-    background-color: #f8f8f8;
+    font-family: Arial, sans-serif; /* フォント設定 */
+    background-color: #f8f8f8; /* 背景色 */
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0; /* 完全に余白をなくす */
-    overflow-x: auto; /* **表ではなく、画面全体のスクロールを許可する** */
+    margin: 0; /* 余白を完全に除去 */
+    overflow-x: auto; /* **画面全体のスクロールを許可** */
     overflow-y: scroll; /* **縦スクロールも許可** */
 }
-th { 
-    background-color: #4CAF50; 
-    color: white; 
-    text-align: center; 
+
+/* 見出し（DAY1など） */
+h2 {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
 }
+
+/* 表の全体レイアウト */
+.schedule-table {
+    display: flex;
+    flex-wrap: nowrap; /* 折り返しを防ぐ */
+    width: auto;
+    max-width: none; /* 制限を解除 */
+    overflow-x: auto; /* **スクロールを可能に** */
+}
+
+/* 個別のテーブル設定 */
+table {
+    border-collapse: collapse;
+    width: auto; /* 自動調整 */
+    table-layout: auto; /* セルのサイズを適切に調整 */
+}
+
+/* セルのデザイン */
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid #ddd; /* 枠線 */
     padding: 10px;
     height: 30px;
     white-space: nowrap; /* 改行を防ぐ */
     overflow: hidden;
 }
 
-table {
-    border-collapse: collapse;
-    max-width: 100vw; /* スマホ画面に合わせる */
-    table-layout: auto;
-}
-
-.schedule-table {
-    display: flex;
-    flex-wrap: nowrap; /* 折り返しを防ぐ */
-    width: auto;
-    max-width: none; /* 制限を解除 */
-    overflow-x: unset; /* **表の横スクロールを無効化** */
-}
-
+/* 左側の時間テーブル */
 .time-table { 
     min-width: 100px; /* 左側の表が切れないようにする */
     text-align: right;
 }
 
+/* 右側のテーブル（滞在地・備考） */
 .shifted-table { 
     width: 100%;
     text-align: left;
+}
+
+/* 3つの表の列幅を統一 */
+@media screen and (max-width: 768px) {
+    .schedule-table {
+        overflow-x: auto; /* スマホでもスクロール可能に */
+        display: block; /* モバイル時に1列で表示 */
+    }
 }
 </style>
 <script>
