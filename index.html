@@ -39,9 +39,10 @@ table {
 
 .schedule-table {
     display: flex;
-    flex-wrap: nowrap; /* スマホで折り返さない */
-    overflow-x: auto;
-    max-width: 100vw; /* スマホでも画面幅を超えない */
+    flex-wrap: nowrap; /* 折り返しを防ぐ */
+    width: auto;
+    max-width: none; /* 制限を解除 */
+    overflow-x: unset; /* **表の横スクロールを無効化** */
 }
 
 .time-table { 
