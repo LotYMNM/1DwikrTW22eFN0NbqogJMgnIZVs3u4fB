@@ -66,11 +66,10 @@ th {
 }
 </style>
 <script>
-function syncTableWidths() {
+function syncColumnWidths() {
     const tables = document.querySelectorAll('.shifted-table');
     let maxWidths = [];
 
-    // 各列の最大幅を取得
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
@@ -78,16 +77,16 @@ function syncTableWidths() {
         });
     });
 
-    // **固定幅を適用（伸び続けるのを防ぐ）**
     tables.forEach(table => {
         const cols = table.querySelectorAll('tr:first-child th, tr:first-child td');
         cols.forEach((col, index) => {
-            col.style.width = maxWidths[index] + "px"; // **minWidthではなくwidthを適用**
+            col.style.width = maxWidths[index] + "px"; /* **統一した幅を適用** */
         });
     });
 }
 
-window.onload = syncTableWidths;
+window.onload = syncColumnWidths;
+window.addEventListener('resize', syncColumnWidths);
 </script>
 </head>
 <body>
