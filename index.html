@@ -33,13 +33,17 @@ table {
     table-layout: fixed; /* セル幅を固定 */
 }
 
-.schedule-table { 
-    display: flex; 
-    gap: 0px; 
-    width: 100%; 
-    max-width: 1200px; 
-    margin: auto; 
-    align-items: flex-start;
+
+.schedule-table {
+    display: flex;
+    gap: 0px;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    align-items: stretch;
+}
+.time-table, .shifted-table {
+    flex-grow: 1;
 }
 
 .time-table { 
