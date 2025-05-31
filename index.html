@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <title>スケジュール</title>
-
 <style>
 /* **全体の設定** */
 body { 
@@ -25,18 +24,18 @@ body {
 .schedule-table {
     display: flex;
     gap: 0px;
-    width: fit-content; /* **テーブルが適切なサイズに収まる** */
-    max-width: none; /* **横幅の制限を解除** */
+    width: fit-content; /* **適切なサイズで収める** */
+    max-width: 100vw; /* **画面幅いっぱいにする** */
     margin: 0 auto;
     align-items: flex-start; /* **縦の高さを統一しない** */
-    overflow-x: auto; /* **表の横スクロールを許可** */
-    overflow-y: hidden; /* **表自体の縦スクロールは禁止** */
+    overflow-x: auto; /* **表の横スクロールを可能に** */
+    overflow-y: hidden; /* **表の縦スクロールを無効化** */
 }
 
 /* **個別のテーブル設定** */
 table {
     border-collapse: collapse;
-    width: 100%; /* **各表の幅を統一** */
+    width: auto; /* **各表の幅を適切に調整** */
     table-layout: fixed; /* **セルの幅を固定し、勝手に伸びないようにする** */
 }
 
@@ -68,7 +67,15 @@ th {
     width: 100%;
     text-align: left;
 }
+
+/* **スマホでも横スクロール可能にする** */
+@media screen and (max-width: 768px) {
+    .schedule-table {
+        overflow-x: auto; /* **横スクロールを許可** */
+    }
+}
 </style>
+
 <script>
 function syncColumnWidths() {
     const tables = document.querySelectorAll('.shifted-table');
